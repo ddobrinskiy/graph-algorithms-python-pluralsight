@@ -1,12 +1,12 @@
 ---
 
-title: module name here
+title: graph_utils 
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "API details."
-description: "API details."
+summary: "a library for working with graphs"
+description: "a library for working with graphs"
 ---
 <!--
 
@@ -27,6 +27,12 @@ description: "API details."
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="declare-base-Graph-class">declare base <a href="/graph_utils/core#Graph"><code>Graph</code></a> class<a class="anchor-link" href="#declare-base-Graph-class"> </a></h1>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -45,7 +51,46 @@ description: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Graph" class="doc_header"><code>class</code> <code>Graph</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L11" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Graph</code>(<strong><code>numVertices</code></strong>:<code>int</code>, <strong><code>directed</code></strong>:<code>bool</code>=<em><code>False</code></em>) :: <code>ABC</code></p>
+<h2 id="Graph" class="doc_header"><code>class</code> <code>Graph</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L9" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Graph</code>(<strong><code>numVertices</code></strong>:<code>int</code>, <strong><code>directed</code></strong>:<code>bool</code>=<em><code>False</code></em>) :: <code>ABC</code></p>
+</blockquote>
+<p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="AdjacencyMatrixGraph">AdjacencyMatrixGraph<a class="anchor-link" href="#AdjacencyMatrixGraph"> </a></h1>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="AdjacencyMatrixGraph" class="doc_header"><code>class</code> <code>AdjacencyMatrixGraph</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L43" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AdjacencyMatrixGraph</code>(<strong><code>numVertices</code></strong>:<code>int</code>, <strong><code>directed</code></strong>:<code>bool</code>=<em><code>False</code></em>) :: <a href="/graph_utils/core#Graph"><code>Graph</code></a></p>
 </blockquote>
 <p>Helper class that provides a standard way to create an ABC using
 inheritance.</p>
@@ -67,10 +112,197 @@ inheritance.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###################################################</span>
+<span class="c1"># test AdjacencyMatrixGraph </span>
+<span class="c1">####################################################</span>
+
+<span class="n">amg</span> <span class="o">=</span> <span class="n">AdjacencyMatrixGraph</span><span class="p">(</span><span class="n">numVertices</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">got</span> <span class="o">=</span> <span class="n">amg</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">got</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="s2">&quot;got: </span><span class="si">{}</span><span class="s2">, expected: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">got</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+
+<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">got</span> <span class="o">=</span> <span class="n">amg</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">got</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="s2">&quot;got: </span><span class="si">{}</span><span class="s2">, expected: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">got</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+
+
+<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_indegree</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_edge_weight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="AdjacencySetGraph">AdjacencySetGraph<a class="anchor-link" href="#AdjacencySetGraph"> </a></h1><p>each node maintainst a set of it's adjascend nodes</p>
+<p><img src="https://i.imgur.com/KsMWFni.png" alt=""></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="Node" class="doc_header"><code>class</code> <code>Node</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L87" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Node</code>(<strong><code>vertexId</code></strong>)</p>
+</blockquote>
+<p>Node represents one vertex in a graph</p>
+<p>each node has a vertex id
+each node is associated with a set of adjacent vertices</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">AdjacencySetGraph</span><span class="p">(</span><span class="n">Graph</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numVertices</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AdjacencySetGraph</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">numVertices</span><span class="p">,</span> <span class="n">directed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertex_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Node</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numVertices</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_validity</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_validity</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;An adjacency set can only represent edge weights == 1&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># add connection from v1 to v2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">[</span><span class="n">v1</span><span class="p">]</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+        
+        <span class="c1"># undirected graphs work both ways</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">directed</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">[</span><span class="n">v2</span><span class="p">]</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_adjacent_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_validity</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">get_indegree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_validity</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        
+        <span class="n">indegree</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numVertices</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">indegree</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+        <span class="k">return</span> <span class="n">indegree</span>
+    
+    <span class="k">def</span> <span class="nf">get_edge_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+        
+    
+    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">asg</span><span class="o">.</span><span class="n">vertex_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">vertexId</span><span class="p">,</span> <span class="s2">&quot;--&gt;&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        
+    
+<span class="n">asg</span> <span class="o">=</span> <span class="n">AdjacencySetGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">vertex_list</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Node(0), Node(1), Node(2), Node(3)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">asg</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 --&gt; 1
+0 --&gt; 3
+1 --&gt; 2
+2 --&gt; 3
+3 --&gt; 0
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
