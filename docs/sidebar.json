@@ -1,6 +1,7 @@
 {
   "graph_utils": {
     "Overview": "/",
-    "graph_utils ": "/core"
+    "graph_utils ": "/core",
+    "Breadth-first graph traversal": "/traversal"
   }
 }
