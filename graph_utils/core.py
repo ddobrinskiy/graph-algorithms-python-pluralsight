@@ -51,10 +51,20 @@ class AdjacencyMatrixGraph(Graph):
 
         self.check_validity(v1)
         self.check_validity(v2)
+
+        if v1 == v2:
+            raise ValueError("A node can't be connected to itself ({}-->{})".format(v1, v2))
+
+
         if weight < 1:
             raise ValueError("An edge cant have weight < 1")
 
         self.matrix[v1][v2] = weight
+
+        # undirected graphs work both ways
+        if not self.directed:
+            self.matrix[v2][v1] = weight
+
 
     def get_adjacent_vertices(self, v):
         self.check_validity(v)
@@ -123,7 +133,7 @@ class AdjacencySetGraph(Graph):
         self.vertex_list[v1].add_edge(v2)
 
         # undirected graphs work both ways
-        if self.directed == False:
+        if not self.directed:
             self.vertex_list[v2].add_edge(v1)
 
     def get_adjacent_vertices(self, v):

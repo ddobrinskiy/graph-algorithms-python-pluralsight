@@ -116,28 +116,28 @@ inheritance.</p>
 <span class="c1"># test AdjacencyMatrixGraph </span>
 <span class="c1">####################################################</span>
 
-<span class="n">amg</span> <span class="o">=</span> <span class="n">AdjacencyMatrixGraph</span><span class="p">(</span><span class="n">numVertices</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">amg</span> <span class="o">=</span> <span class="n">AdjacencyMatrixGraph</span><span class="p">(</span><span class="n">numVertices</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">got</span> <span class="o">=</span> <span class="n">amg</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
 <span class="k">assert</span> <span class="n">got</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="s2">&quot;got: </span><span class="si">{}</span><span class="s2">, expected: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">got</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 
-<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">amg</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">got</span> <span class="o">=</span> <span class="n">amg</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
 <span class="k">assert</span> <span class="n">got</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="s2">&quot;got: </span><span class="si">{}</span><span class="s2">, expected: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">got</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 
 
 <span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_indegree</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_edge_weight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_edge_weight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">amg</span><span class="o">.</span><span class="n">get_adjacent_vertices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -173,7 +173,7 @@ inheritance.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Node" class="doc_header"><code>class</code> <code>Node</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L87" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Node</code>(<strong><code>vertexId</code></strong>)</p>
+<h2 id="Node" class="doc_header"><code>class</code> <code>Node</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L97" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Node</code>(<strong><code>vertexId</code></strong>)</p>
 </blockquote>
 <p>Node represents one vertex in a graph</p>
 <p>each node has a vertex id
@@ -223,7 +223,7 @@ each node is associated with a set of adjacent vertices</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="AdjacencySetGraph" class="doc_header"><code>class</code> <code>AdjacencySetGraph</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L110" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AdjacencySetGraph</code>(<strong><code>numVertices</code></strong>, <strong><code>directed</code></strong>=<em><code>False</code></em>) :: <a href="/graph_utils/core#Graph"><code>Graph</code></a></p>
+<h2 id="AdjacencySetGraph" class="doc_header"><code>class</code> <code>AdjacencySetGraph</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/core.py#L120" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AdjacencySetGraph</code>(<strong><code>numVertices</code></strong>, <strong><code>directed</code></strong>=<em><code>False</code></em>) :: <a href="/graph_utils/core#Graph"><code>Graph</code></a></p>
 </blockquote>
 <p>Helper class that provides a standard way to create an ABC using
 inheritance.</p>

@@ -1,6 +1,6 @@
 SRC = $(wildcard ./*.ipynb)
 
-all: test graph_utils docs
+all: graph_utils test docs
 
 graph_utils: $(SRC)
 	nbdev_build_lib
