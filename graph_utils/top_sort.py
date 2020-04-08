@@ -43,6 +43,7 @@ def topological_sort(graph:gu.Graph) -> List:
     if len(sortedList) != graph.numVertices:
         raise ValueError("This graph has a cycle!")
 
+
     return sortedList
 
 
