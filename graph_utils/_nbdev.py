@@ -6,12 +6,13 @@ index = {"Graph": "00_core.ipynb",
          "AdjacencyMatrixGraph": "00_core.ipynb",
          "Node": "00_core.ipynb",
          "AdjacencySetGraph": "00_core.ipynb",
-         "asg": "00_core.ipynb",
          "breadth_first": "01_traversal.ipynb",
-         "depth_first": "01_traversal.ipynb"}
+         "depth_first": "01_traversal.ipynb",
+         "topological_sort": "02_topological_sort.ipynb"}
 
 modules = ["core.py",
-           "traversal.py"]
+           "traversal.py",
+           "top_sort.py"]
 
 doc_url = "https://ddobrinskiy.github.io/graph_utils/"
 

@@ -2,6 +2,7 @@
   "graph_utils": {
     "Overview": "/",
     "graph_utils ": "/core",
-    "Breadth-first graph traversal": "/traversal"
+    "Breadth-first graph traversal": "/traversal",
+    "Title": "/topological_sort"
   }
 }
