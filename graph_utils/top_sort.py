@@ -26,26 +26,23 @@ def topological_sort(graph:gu.Graph) -> List:
 
         sortedList = []
 
-        while not queue.empty():
+    while not queue.empty():
 
-            vertex = queue.get()
+        vertex = queue.get()
 
-            sortedList.append(vertex)
+        sortedList.append(vertex)
 
-            for v in graph.get_adjacent_vertices(vertex):
+        for v in graph.get_adjacent_vertices(vertex):
 
-                # decrement by one
-                indegreeMap[v] -= 1
+            # decrement by one
+            indegreeMap[v] -= 1
 
-                if indegreeMap[v] == 0:
-                    queue.put(v)
+            if indegreeMap[v] == 0:
+                queue.put(v)
 
-        if len(sortedList) != graph.numVertices:
-            raise ValueError("This graph has a cycle!")
+    if len(sortedList) != graph.numVertices:
+        raise ValueError("This graph has a cycle!")
 
-        return sortedList
-
-
+    return sortedList
 
 
-?topological_sort

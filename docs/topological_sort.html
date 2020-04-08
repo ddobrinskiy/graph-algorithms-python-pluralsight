@@ -56,7 +56,7 @@ description: "summary"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;Graph&#39;, &#39;AdjacencyMatrixGraph&#39;, &#39;Node&#39;, &#39;AdjacencySetGraph&#39;, &#39;asg&#39;]</pre>
+<pre>[&#39;Graph&#39;, &#39;AdjacencyMatrixGraph&#39;, &#39;Node&#39;, &#39;AdjacencySetGraph&#39;]</pre>
 </div>
 
 </div>
@@ -103,11 +103,43 @@ description: "summary"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="topological_sort" class="doc_header"><code>topological_sort</code><a href="https://github.com/ddobrinskiy/graph_utils/tree/master/graph_utils/top_sort.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>topological_sort</code>(<strong><code>graph</code></strong>:<a href="/graph_utils/core#Graph"><code>Graph</code></a>)</p>
+</blockquote>
+<p>calc topological sort of a DAG</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>topological_sort
 </pre></div>
 
     </div>
@@ -121,10 +153,66 @@ description: "summary"
 
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span> topological_sort<span class="ansi-blue-fg">(</span>graph<span class="ansi-blue-fg">:</span> graph_utils<span class="ansi-blue-fg">.</span>core<span class="ansi-blue-fg">.</span>Graph<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> List
+<span class="ansi-red-fg">Docstring:</span> calc topological sort of a DAG
+<span class="ansi-red-fg">File:</span>      ~/proj/graph-algorithms-python-pluralsight/&lt;ipython-input-5-8e1b54a8340d&gt;
+<span class="ansi-red-fg">Type:</span>      function
+</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">gu</span><span class="o">.</span><span class="n">AdjacencyMatrixGraph</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">topological_sort</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 --&gt; 1
+1 --&gt; 2
+1 --&gt; 5
+2 --&gt; 3
+2 --&gt; 4
+2 --&gt; 7
+3 --&gt; 4
+3 --&gt; 6
+5 --&gt; 6
+6 --&gt; 8
+</pre>
+</div>
 </div>
 
 </div>
