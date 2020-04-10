@@ -24,6 +24,12 @@ entries:
     - output: web,pdf
       title: Dijsktra
       url: /dijsktra
+    - output: web,pdf
+      title: Prim
+      url: /Prim_spanning_tree
+    - output: web,pdf
+      title: Title
+      url: /Kruskal_spanning_tree
     output: web
     title: graph_utils
   output: web

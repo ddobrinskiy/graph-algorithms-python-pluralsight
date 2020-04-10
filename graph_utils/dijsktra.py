@@ -13,9 +13,6 @@ import graph_utils.core as gu
 from .shortest_path import shortest_path
 
 # Cell
-
-# https://code.activestate.com/recipes/522995-priority-dict-a-priority-queue-with-updatable-prio/
-
 from heapq import heapify, heappush, heappop
 
 class priority_dict(dict):
@@ -31,6 +28,9 @@ class priority_dict(dict):
     priority, and 'pop_smallest' also removes it.
 
     The 'sorted_iter' method provides a destructive sorted iterator.
+
+    SOURCE:
+    https://code.activestate.com/recipes/522995-priority-dict-a-priority-queue-with-updatable-prio/
     """
 
     def __init__(self, *args, **kwargs):

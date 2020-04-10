@@ -9,16 +9,18 @@ index = {"Graph": "00_core.ipynb",
          "breadth_first": "01_traversal.ipynb",
          "depth_first": "01_traversal.ipynb",
          "topological_sort": "02_topological_sort.ipynb",
-         "Row": "04_dijsktra.ipynb",
+         "Row": "05_Prim_spanning_tree.ipynb",
          "build_distance_table": "04_dijsktra.ipynb",
          "shortest_path": "03_shortest_path.ipynb",
-         "priority_dict": "04_dijsktra.ipynb"}
+         "priority_dict": "04_dijsktra.ipynb",
+         "spanning_tree": "05_Prim_spanning_tree.ipynb"}
 
 modules = ["core.py",
            "traversal.py",
            "top_sort.py",
            "shortest_path.py",
-           "dijsktra.py"]
+           "dijsktra.py",
+           "prim.py"]
 
 doc_url = "https://ddobrinskiy.github.io/graph_utils/"
 
