@@ -16,8 +16,11 @@ entries:
       title: Breadth-first graph traversal
       url: /traversal
     - output: web,pdf
-      title: Title
+      title: Topological sort
       url: /topological_sort
+    - output: web,pdf
+      title: Shortest path
+      url: /shortest_path
     output: web
     title: graph_utils
   output: web
