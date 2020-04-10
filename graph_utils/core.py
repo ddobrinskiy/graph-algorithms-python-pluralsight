@@ -172,8 +172,18 @@ class AdjacencySetGraph(Graph):
         return 1
 
 
-    def display(self):
-        for node in asg.vertex_list:
-            for v in node.get_adjacent_vertices():
-                print(node.vertexId, "-->", v)
+    def human_readable(self):
+        conns = []
 
+        for node in self.vertex_list:
+            for v in node.get_adjacent_vertices():
+                conns.append(f"{node.vertexId} --> {v}")
+
+        return '\n'.join(conns)
+
+
+    def display(self):
+        print(self.human_readable())
+
+    def __repr__(self):
+        return self.human_readable()

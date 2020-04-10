@@ -3,6 +3,7 @@
     "Overview": "/",
     "graph_utils ": "/core",
     "Breadth-first graph traversal": "/traversal",
-    "Title": "/topological_sort"
+    "Topological sort": "/topological_sort",
+    "Shortest path": "/shortest_path"
   }
 }
