@@ -10,7 +10,8 @@ index = {"Graph": "00_core.ipynb",
          "depth_first": "01_traversal.ipynb",
          "topological_sort": "02_topological_sort.ipynb",
          "Row": "03_shortest_path.ipynb",
-         "build_distance_table": "03_shortest_path.ipynb"}
+         "build_distance_table": "03_shortest_path.ipynb",
+         "shortest_path": "03_shortest_path.ipynb"}
 
 modules = ["core.py",
            "traversal.py",
