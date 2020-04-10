@@ -59,8 +59,8 @@ def build_distance_table(graph:gu.Graph, source:int):
 
 # Cell
 
-def shortest_path(graph:gu.Graph, source:int, destination:int):
-    distance_table = build_distance_table(graph, source)
+def shortest_path(graph:gu.Graph, source:int, destination:int, dist_table_func):
+    distance_table = dist_table_func(graph, source)
     path = [destination]
 
     # distance_table is a dict, s.t
