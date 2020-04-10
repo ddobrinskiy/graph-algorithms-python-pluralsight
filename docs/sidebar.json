@@ -4,6 +4,7 @@
     "graph_utils ": "/core",
     "Breadth-first graph traversal": "/traversal",
     "Topological sort": "/topological_sort",
-    "Shortest path": "/shortest_path"
+    "Shortest path": "/shortest_path",
+    "Dijsktra": "/dijsktra"
   }
 }

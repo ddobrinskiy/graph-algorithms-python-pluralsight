@@ -11,12 +11,14 @@ index = {"Graph": "00_core.ipynb",
          "topological_sort": "02_topological_sort.ipynb",
          "Row": "03_shortest_path.ipynb",
          "build_distance_table": "03_shortest_path.ipynb",
-         "shortest_path": "03_shortest_path.ipynb"}
+         "shortest_path": "03_shortest_path.ipynb",
+         "priority_dict": "04_dijsktra.ipynb"}
 
 modules = ["core.py",
            "traversal.py",
            "top_sort.py",
-           "shortest_path.py"]
+           "shortest_path.py",
+           "dijsktra.py"]
 
 doc_url = "https://ddobrinskiy.github.io/graph_utils/"
 

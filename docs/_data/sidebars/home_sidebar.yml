@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Shortest path
       url: /shortest_path
+    - output: web,pdf
+      title: Dijsktra
+      url: /dijsktra
     output: web
     title: graph_utils
   output: web
