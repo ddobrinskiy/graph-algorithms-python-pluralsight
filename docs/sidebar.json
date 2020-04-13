@@ -7,6 +7,6 @@
     "Shortest path": "/shortest_path",
     "Dijsktra": "/dijsktra",
     "Prim": "/Prim_spanning_tree",
-    "Title": "/Kruskal_spanning_tree"
+    "Kruskal": "/Kruskal_spanning_tree"
   }
 }

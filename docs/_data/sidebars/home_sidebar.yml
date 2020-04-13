@@ -28,7 +28,7 @@ entries:
       title: Prim
       url: /Prim_spanning_tree
     - output: web,pdf
-      title: Title
+      title: Kruskal
       url: /Kruskal_spanning_tree
     output: web
     title: graph_utils

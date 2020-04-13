@@ -13,14 +13,16 @@ index = {"Graph": "00_core.ipynb",
          "build_distance_table": "04_dijsktra.ipynb",
          "shortest_path": "03_shortest_path.ipynb",
          "priority_dict": "04_dijsktra.ipynb",
-         "spanning_tree": "05_Prim_spanning_tree.ipynb"}
+         "spanning_tree": "06_Kruskal_spanning_tree.ipynb",
+         "has_cycle": "06_Kruskal_spanning_tree.ipynb"}
 
 modules = ["core.py",
            "traversal.py",
            "top_sort.py",
            "shortest_path.py",
            "dijsktra.py",
-           "prim.py"]
+           "prim.py",
+           "kruskal.py"]
 
 doc_url = "https://ddobrinskiy.github.io/graph_utils/"
 
